@@ -1,35 +1,158 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Истории моей семьи</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Семейные истории</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #fdfaf6;
+      margin: 0;
+      padding: 0;
+      color: #4a3b2a;
+    }
+
+    header {
+      background-color: #8b5e3c;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      opacity: 0.9;
+    }
+
+    nav {
+      background-color: #e8ded1;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #5a3e2b;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .story-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .story-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .story-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .story-card p {
+      font-size: 0.95em;
+      color: #6a5a4a;
+    }
+
+    .story-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      background-color: #8b5e3c;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      margin-top: 40px;
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <h1>Семейные истории</h1>
+    <p>Сохраняем память. Передаём любовь.</p>
+  </header>
 
-  <div class="cover-container">
-    <header class="cover-header">
-      <img src="cover.jpg" alt="Мои семейные хроники">
-    </header>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="stories.html">Истории</a>
+    <a href="about.html">О проекте</a>
+    <a href="contact.html">Контакты</a>
+  </nav>
 
-    <section class="toc">
-      <h2 class="toc-title">Оглавление</h2>
-      <p class="toc-sub">Семь историй из семейного архива</p>
+  <div class="container">
+    <div class="intro">
+      Добро пожаловать в наш семейный архив.  
+      Здесь мы собираем истории, фотографии и воспоминания, чтобы сохранить их для будущих поколений.
+    </div>
 
-      <a class="toc-item" href="story1.html"><span>1</span> Добровольный путь во мрак небытия</a>
-      <a class="toc-item" href="story2.html"><span>2</span> История любви и измены</a>
-      <a class="toc-item" href="story3.html"><span>3</span> Масляная битва</a>
-      <a class="toc-item" href="story4.html"><span>4</span> Полёт и очередь</a>
-      <a class="toc-item" href="story5.html"><span>5</span> Детская доверчивость</a>
-      <a class="toc-item" href="story6.html"><span>6</span> Как тесен мир</a>
-      <a class="toc-item" href="story7.html"><span>7</span> Утренний переполох</a>
-    </section>
+    <h2>Последние истории</h2>
 
-    <footer>
-      &copy; 2025 Истории моей семьи
-    </footer>
+    <div class="stories-grid">
+      <div class="story-card">
+        <img src="IMG-20190314-WA0045.jpg" alt="История 1">
+        <h3>Бабушка в деревне</h3>
+        <p>Тёплые воспоминания о детстве, деревне и семейных традициях.</p>
+        <a href="story1.html">Читать</a>
+      </div>
+
+      <div class="story-card">
+        <img src="photo2.jpg" alt="История 2">
+        <h3>История 2</h3>
+        <p>Короткое описание второй истории.</p>
+        <a href="story2.html">Читать</a>
+      </div>
+
+      <div class="story-card">
+        <img src="photo3.jpg" alt="История 3">
+        <h3>История 3</h3>
+        <p>Короткое описание третьей истории.</p>
+        <a href="story3.html">Читать</a>
+      </div>
+    </div>
   </div>
 
+  <footer>
+    &copy; 2025 Семейные истории
+  </footer>
 </body>
 </html>
