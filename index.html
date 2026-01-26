@@ -8,27 +8,16 @@
     body {
       font-family: Georgia, serif;
       background-color: #fdfaf6;
+      color: #4a3b2a;
       margin: 0;
       padding: 0;
-      color: #4a3b2a;
     }
 
     header {
       background-color: #8b5e3c;
       color: white;
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
-    }
-
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-
-    header p {
-      font-size: 1.3em;
-      margin-top: 10px;
-      opacity: 0.9;
     }
 
     nav {
@@ -45,7 +34,7 @@
       font-size: 1.1em;
     }
 
-    .container {
+    main {
       max-width: 900px;
       margin: 40px auto;
       padding: 0 20px;
@@ -54,11 +43,11 @@
     .intro {
       font-size: 1.2em;
       line-height: 1.6;
-      margin-bottom: 40px;
       text-align: center;
+      margin-bottom: 40px;
     }
 
-    .stories-grid {
+    .story-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 25px;
@@ -105,7 +94,6 @@
     }
   </style>
 </head>
-
 <body>
   <header>
     <h1>Семейные истории</h1>
@@ -119,40 +107,40 @@
     <a href="contact.html">Контакты</a>
   </nav>
 
-  <div class="container">
+  <main>
     <div class="intro">
-      Добро пожаловать в наш семейный архив.  
-      Здесь мы собираем истории, фотографии и воспоминания, чтобы сохранить их для будущих поколений.
+      Добро пожаловать! Этот сайт посвящён нашей семье, её прошлому и настоящему.  
+      Здесь собраны истории, фотографии и воспоминания, которые мы хотим сохранить.
     </div>
 
-    <h2>Последние истории</h2>
+    <h2 style="text-align:center;">Наши истории</h2>
 
-    <div class="stories-grid">
+    <div class="story-grid">
       <div class="story-card">
-        <img src="IMG-20190314-WA0045.jpg" alt="История 1">
+        <img src="IMG-20190314-WA0045.jpg" alt="Бабушка в деревне">
         <h3>Бабушка в деревне</h3>
-        <p>Тёплые воспоминания о детстве, деревне и семейных традициях.</p>
+        <p>История о жизни бабушки в деревне в 1930-х годах.</p>
         <a href="story1.html">Читать</a>
       </div>
 
       <div class="story-card">
-        <img src="photo2.jpg" alt="История 2">
-        <h3>История 2</h3>
-        <p>Короткое описание второй истории.</p>
+        <img src="IMG-20200110-WA0002.jpg" alt="Папа в армии">
+        <h3>Папа в армии</h3>
+        <p>Воспоминания о службе отца в 1970-х годах.</p>
         <a href="story2.html">Читать</a>
       </div>
 
       <div class="story-card">
-        <img src="photo3.jpg" alt="История 3">
-        <h3>История 3</h3>
-        <p>Короткое описание третьей истории.</p>
+        <img src="IMG-20210422-WA0011.jpg" alt="Семейный праздник">
+        <h3>Семейный праздник</h3>
+        <p>Как мы отмечали день рождения дедушки в 1995 году.</p>
         <a href="story3.html">Читать</a>
       </div>
     </div>
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 Семейные истории
+    &copy; 2026 Семейные истории
   </footer>
 </body>
 </html>
