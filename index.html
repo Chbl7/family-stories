@@ -1,44 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Истории моей семьи</title>
   <meta name="description" content="Семейные истории, которые стоит сохранить и передать дальше." />
-  <title>Семейные истории</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- запасной стиль на случай, если style.css временно не подхватится -->
   <style>
-    body {
-      font-family: Georgia, serif;
-      background-color: #fdfaf6;
-      color: #333;
-    }
+    :root { --bg:#f6f2ea; --card:#ffffff; --ink:#2b2b2b; --muted:#6a6158; --accent:#2f6fdd; }
+    body { margin:0; font-family: Georgia, "Times New Roman", serif; color:var(--ink); background: radial-gradient(ellipse at top, #fff 0%, var(--bg) 55%, #efe7db 100%); }
+    .page { max-width: 980px; margin: 0 auto; padding: 28px 16px 56px; }
+    .hero { background: rgba(255,255,255,.75); border: 1px solid rgba(0,0,0,.06); border-radius: 22px; padding: 22px; box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .title { margin: 6px 0 2px; font-size: 40px; line-height: 1.1; text-align:center; }
+    .subtitle { margin: 0; text-align:center; color: var(--muted); font-style: italic; }
+    .cover { margin: 18px auto 10px; max-width: 860px; }
+    .cover img { width: 100%; height: auto; display:block; border-radius: 18px; box-shadow: 0 12px 28px rgba(0,0,0,.14); }
+    .toc { margin: 18px auto 0; max-width: 720px; display: grid; gap: 12px; }
+    .toc a { display:block; text-decoration:none; color: var(--ink); background: var(--card); padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(0,0,0,.08); box-shadow: 0 6px 16px rgba(0,0,0,.08); text-align:center; font-weight: 700; letter-spacing:.2px; }
+    .toc a:hover { transform: translateY(-1px); transition: .15s ease; }
+    .smallnote { margin-top: 10px; text-align:center; color: var(--muted); font-size: 14px; }
+    footer { margin-top: 26px; text-align:center; color: var(--muted); font-size: 14px; }
   </style>
 </head>
+
 <body>
-  <header>
-    <h1>Семейные истории</h1>
-    <p>Добро пожаловать в наш семейный архив</p>
-  </header>
+  <div class="page">
+    <header class="hero">
+      <h1 class="title">Истории моей семьи</h1>
+      <p class="subtitle">Искренний взгляд на семью и эпоху</p>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Главная</a></li>
-      <li><a href="stories.html">Истории</a></li>
-      <li><a href="about.html">О проекте</a></li>
-      <li><a href="contact.html">Контакты</a></li>
-    </ul>
-  </nav>
+      <div class="cover">
+        <picture>
+          <!-- попробуем разные варианты имени файла обложки -->
+          <source srcset="cover.jpg.png" type="image/png">
+          <source srcset="cover.png" type="image/png">
+          <source srcset="cover.jpg" type="image/jpeg">
+          <img src="cover.jpg.png" alt="Обложка семейных историй"
+               onerror="this.onerror=null; this.src='cover.png';" />
+        </picture>
+      </div>
 
-  <main>
-    <section>
-      <h2>О нас</h2>
-      <p>Здесь мы собираем истории, фотографии и воспоминания, чтобы сохранить их для будущих поколений.</p>
-    </section>
-  </main>
+      <nav class="toc" aria-label="Оглавление">
+        <a href="story1.html">ИСТОРИЯ 1: ДОБРОВОЛЬНЫЙ ПУТЬ ВО МРАК НЕБЫТИЯ</a>
+        <a href="story2.html">ИСТОРИЯ 2: ИСТОРИЯ ЛЮБВИ И ИЗМЕНЫ</a>
+        <a href="story3.html">ИСТОРИЯ 3: МАСЛЯНАЯ БИТВА</a>
+        <a href="story4.html">ИСТОРИЯ 4: ПОЛЁТ И ОЧЕРЕДЬ</a>
+        <a href="story5.html">ИСТОРИЯ 5: ДЕТСКАЯ ДОВЕРЧИВОСТЬ</a>
+        <a href="story6.html">ИСТОРИЯ 6: КАК ТЕСЕН МИР</a>
+        <a href="story7.html">ИСТОРИЯ 7: УТРЕННИЙ ПЕРЕПОЛОХ</a>
+      </nav>
 
-  <footer>
-    <p>&copy; 2026 Семейные истории</p>
-  </footer>
+      <div class="smallnote">Совет: если сайт не обновился сразу, нажмите Ctrl + F5.</div>
+    </header>
+
+    <footer>&copy; 2025 Истории моей семьи</footer>
+  </div>
 </body>
 </html>
-
