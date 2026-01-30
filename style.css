@@ -187,5 +187,24 @@ main.story h3{
   .photo-grid{ grid-template-columns: 1fr; }
 
 }
+.preface {
+  max-width: 760px;
+  margin: 18px auto 22px;
+  padding: 18px 22px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+.preface h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.preface p {
+  margin: 0 0 12px;
+  line-height: 1.7;
+}
+
 
 
