@@ -205,6 +205,20 @@ main.story h3{
   margin: 0 0 12px;
   line-height: 1.7;
 }
+.preface {
+  font-family: "Georgia", "Palatino Linotype", "Book Antiqua", serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #2f2a26;
+}
+
+.preface h2 {
+  font-family: "Palatino Linotype", "Georgia", serif;
+  font-size: 28px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
 
 
 
