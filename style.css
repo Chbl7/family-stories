@@ -262,8 +262,57 @@ a {
     text-decoration-thickness: 1px !important;
     text-underline-offset: 4px !important;
 }
+/* Полная трансформация под бумажную книгу */
+
+/* 1. Фон всей страницы */
+html, body {
+    background-color: #fdfaf3 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. Убираем белую "карточку" вокруг текста */
+section, main, .container, .card, .content, div[class*="container"] {
+    background-color: transparent !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* 3. Настройка текста */
+p, li {
+    font-family: 'Georgia', serif !important;
+    font-size: 1.25rem !important; /* Чуть крупнее для удобства */
+    line-height: 1.8 !important;   /* Больше воздуха между строками */
+    color: #3e3e3e !important;     /* Мягкий темный цвет */
+    text-align: left !important;   /* Книжное выравнивание по левому краю */
+}
+
+/* 4. Красивые заголовки */
+h1, h2, h3 {
+    font-family: 'Georgia', serif !important;
+    color: #5d4037 !important;
+    text-align: center !important;
+    margin-top: 2em !important;
+    font-weight: normal !important;
+}
+
+/* 5. Ссылки (список историй внизу) */
+a {
+    color: #8d6e63 !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 1px !important;
+    text-underline-offset: 4px !important;
+}
 
 a:hover {
     color: #5d4037 !important;
 }
+
+a:hover {
+    color: #5d4037 !important;
+}
+
 
