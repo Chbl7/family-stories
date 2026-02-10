@@ -218,42 +218,35 @@ main.story h3{
   letter-spacing: 0.5px;
   margin-bottom: 20px;
 }
-/* Книжный стиль для семейных историй */
+/* Улучшенный книжный стиль с приоритетом */
 body {
-    background-color: #fdfaf3; /* Цвет мягкой бумаги */
-    color: #2c2c2c;            /* Глубокий серый вместо черного */
-    font-family: 'Georgia', 'Times New Roman', serif;
-    line-height: 1.6;          /* Увеличенное расстояние между строками */
-    margin: 0;
-    padding: 0;
+    background-color: #fdfaf3 !important; /* Цвет бумаги */
+    color: #2c2c2c !important;
+    font-family: 'Georgia', serif !important;
 }
 
-.container, article { 
-    max-width: 700px;         /* Оптимальная ширина для чтения */
-    margin: 0 auto;           /* Центрирование текста */
-    padding: 40px 20px;
+/* Настройка контейнера с текстом */
+article, .container, .content-wrapper { 
+    max-width: 750px !important;
+    margin: 0 auto !important;
+    background-color: transparent !important; /* Убираем белые плашки */
+    box-shadow: none !important; /* Убираем тени, если есть */
+    text-align: left !important; /* Текст в книгах обычно по левому краю */
 }
 
-h1, h2 {
-    color: #5d4037;           /* Коричневый оттенок для заголовков */
-    text-align: center;
-    font-weight: normal;
+/* Заголовки */
+h1, h2, .title {
+    color: #5d4037 !important;
+    font-family: 'Georgia', serif !important;
+    margin-top: 50px !important;
+    text-align: center !important;
 }
 
+/* Абзацы текста */
 p {
-    margin-bottom: 1.5em;     /* Расстояние между абзацами */
-    font-size: 1.15rem;       /* Чуть крупнее стандартного */
+    font-size: 1.2rem !important;
+    line-height: 1.7 !important;
+    margin-bottom: 1.5em !important;
+    text-align: justify !important; /* Текст «ровным блоком», как в книге */
+    hyphens: auto; /* Переносы слов */
 }
-
-/* Эффект первой буквы (буквица) */
-p:first-of-type::first-letter {
-    float: left;
-    font-size: 3.5em;
-    line-height: 0.8;
-    padding-right: 8px;
-    color: #8d6e63;
-}
-
-
-
-
