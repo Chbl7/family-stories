@@ -333,5 +333,37 @@ footer, .footer, div:last-child {
     font-style: italic !important;
     color: #8d6e63 !important;
 }
+/* Финальные правки позиционирования */
+
+/* 1. Центрируем верхнюю надпись */
+body > header, 
+body > div:first-child,
+p:contains("Семь историй") {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 20px auto !important;
+    font-style: italic !important;
+    color: #8d6e63 !important;
+}
+
+/* 2. Оглавление: каждая история с новой строки и по центру */
+footer ~ a, 
+p ~ a, 
+.links a,
+body > a {
+    display: block !important;       /* Каждая ссылка — с новой строки */
+    text-align: center !important;    /* Центрируем названия */
+    margin: 15px auto !important;     /* Отступы между названиями */
+    max-width: 600px !important;
+    text-decoration: none !important; /* Убираем стандартное подчеркивание */
+    font-size: 1.1rem !important;
+}
+
+/* Эффект при наведении на название истории */
+body > a:hover {
+    text-decoration: underline !important;
+    color: #5d4037 !important;
+}
 
 
