@@ -365,5 +365,36 @@ body > a:hover {
     text-decoration: underline !important;
     color: #5d4037 !important;
 }
+/* Исправление центровки и списка ссылок */
+
+/* 1. Центрируем фразу "Семь историй..." */
+body > p:first-of-type, 
+header p, 
+.subtitle {
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
+    margin: 20px auto !important;
+}
+
+/* 2. Превращаем ссылки в вертикальный список по центру */
+/* Это правило ищет все ссылки, которые идут после основного текста */
+p ~ a, 
+footer ~ a,
+.links a,
+body > a {
+    display: table !important;    /* Позволяет центрировать ссылку как блок */
+    margin: 15px auto !important; /* Отступы сверху/снизу и авто-центр по бокам */
+    text-align: center !important;
+    width: auto !important;
+    text-decoration: none !important;
+    font-family: 'Georgia', serif !important;
+}
+
+/* Добавляем небольшое подчеркивание при наведении для красоты */
+p ~ a:hover, body > a:hover {
+    text-decoration: underline !important;
+    color: #5d4037 !important;
+}
 
 
