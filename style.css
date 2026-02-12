@@ -444,5 +444,11 @@ p ~ a:hover, body > a:hover {
 .back-home a:hover {
   text-decoration: underline;
 }
+.subtitle {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
 
 
