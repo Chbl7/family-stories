@@ -430,4 +430,19 @@ p ~ a:hover, body > a:hover {
   text-decoration: underline;
 }
 
+.back-home {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.back-home a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+.back-home a:hover {
+  text-decoration: underline;
+}
+
 
