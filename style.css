@@ -397,4 +397,37 @@ p ~ a:hover, body > a:hover {
     color: #5d4037 !important;
 }
 
+.contents {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.contents h2 {
+  text-align: center;
+  font-size: 1.7em;
+  margin-bottom: 30px;
+}
+
+.contents ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contents li {
+  margin-bottom: 16px;
+}
+
+.contents a {
+  font-size: 1.15em;
+  text-decoration: none;
+  color: #5a3e2b;
+  font-weight: 500;
+}
+
+.contents a:hover {
+  text-decoration: underline;
+}
+
 
