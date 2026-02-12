@@ -450,5 +450,9 @@ p ~ a:hover, body > a:hover {
   margin-bottom: 30px;
 }
 
+.contents p {
+  text-align: center;
+}
+
 
 
