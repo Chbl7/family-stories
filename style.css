@@ -417,7 +417,10 @@ p ~ a:hover, body > a:hover {
 }
 
 .contents li {
-  margin-bottom: 16px;
+  .contents li {
+  margin-bottom: 20px;
+}
+
 }
 
 .contents a {
@@ -454,6 +457,7 @@ p ~ a:hover, body > a:hover {
 .contents p {
   text-align: center;
 }
+
 
 
 
