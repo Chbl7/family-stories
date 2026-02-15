@@ -401,7 +401,8 @@ p ~ a:hover, body > a:hover {
   max-width: 700px;
   margin: 60px auto;
   padding: 0 20px;
-  text-align: left;
+  text-align: center;
+
 }
 
 .contents h2 {
@@ -453,6 +454,7 @@ p ~ a:hover, body > a:hover {
 .contents p {
   text-align: center;
 }
+
 
 
 
