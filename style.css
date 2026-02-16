@@ -461,6 +461,29 @@ p ~ a:hover, body > a:hover {
 .contents p {
   text-align: center;
 }
+/* Жёстко фиксируем оформление оглавления */
+.contents,
+.contents ul,
+.contents li {
+  text-align: center !important;
+}
+
+.contents ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+}
+
+.contents li {
+  margin: 0 0 20px 0 !important;
+}
+
+.contents a {
+  display: inline !important;
+  margin: 0 !important;
+  width: auto !important;
+}
+
 
 
 
