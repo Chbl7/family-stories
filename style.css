@@ -423,10 +423,15 @@ p ~ a:hover, body > a:hover {
 
 
 .contents a {
+  display: inline-block !important;
+  margin: 0 !important;
+  text-align: center !important;
+  width: auto !important;
   font-size: 1.15em;
   text-decoration: none;
   color: #5a3e2b;
   font-weight: 500;
+
 }
 
 .contents a:hover {
@@ -456,6 +461,7 @@ p ~ a:hover, body > a:hover {
 .contents p {
   text-align: center;
 }
+
 
 
 
