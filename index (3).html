@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Истории моей семьи</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+SC:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --parchment: #f0e8d8;
+      --parchment-dark: #e2d4be;
+      --ink: #1a1008;
+      --ink-light: #3d2d18;
+      --sepia: #7a5c30;
+      --sepia-light: #a07838;
+      --gold: #c9a84c;
+      --cream: #faf6ee;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--parchment);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* Paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.5;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('cover.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: sepia(40%) brightness(0.75) contrast(1.1);
+      transform: scale(1.03);
+      animation: slowzoom 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowzoom {
+      from { transform: scale(1.03); }
+      to   { transform: scale(1.08); }
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(20,10,0,0.65) 100%);
+    }
+
+    .hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20,10,0,0.2) 0%,
+        transparent 30%,
+        transparent 55%,
+        rgba(20,10,0,0.7) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeup 1.6s ease both;
+    }
+
+    @keyframes fadeup {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 500;
+      font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+      letter-spacing: 0.35em;
+      color: var(--sepia-light);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 1;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      line-height: 1.05;
+      color: var(--cream);
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.6);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--sepia-light);
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem auto;
+      position: relative;
+    }
+    .hero-divider::before,
+    .hero-divider::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .hero-divider::before { left: -4px; }
+    .hero-divider::after  { right: -4px; }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-style: italic;
+      color: rgba(250,246,238,0.8);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(250,246,238,0.5);
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: fadeup 2s 1s ease both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(250,246,238,0.5), transparent);
+      animation: scrolldown 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrolldown {
+      0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+      50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+      51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+      100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+    }
+
+    /* ── PREFACE ── */
+    .preface {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      color: var(--sepia);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .preface p {
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+      line-height: 2;
+      color: var(--ink-light);
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+    }
+
+    .preface p strong {
+      font-weight: 600;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    .ornament {
+      font-size: 2rem;
+      color: var(--gold);
+      display: block;
+      margin: 3rem auto 0;
+      opacity: 0.6;
+    }
+
+    /* ── STORIES ── */
+    .stories-section {
+      padding: 4rem 1.5rem 7rem;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .stories-section .section-label {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .stories-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .story-card {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: start;
+      gap: 0 1.8rem;
+      padding: 2.2rem 0;
+      border-bottom: 1px solid rgba(139,111,71,0.2);
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      transition: background 0.3s;
+      border-radius: 4px;
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .story-card:first-child {
+      border-top: 1px solid rgba(139,111,71,0.2);
+    }
+
+    .story-card:hover {
+      background: rgba(139,111,71,0.06);
+    }
+
+    .story-card:hover .story-arrow {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .story-number {
+      font-family: 'Cormorant SC', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--sepia);
+      opacity: 0.5;
+      line-height: 1;
+      padding-top: 0.15rem;
+      text-align: right;
+    }
+
+    .story-body { flex: 1; }
+
+    .story-tag {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: var(--sepia);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .story-title {
+      font-size: clamp(1.35rem, 3vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .story-card:hover .story-title {
+      color: var(--sepia);
+    }
+
+    .story-desc {
+      font-size: 1rem;
+      color: var(--ink-light);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .story-arrow {
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 1.1rem;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(122,92,48,0.3);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      color: var(--sepia);
+    }
+
+    /* ── FADE-IN ON SCROLL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .story-card { grid-template-columns: 40px 1fr; gap: 0 1rem; }
+      .story-number { font-size: 1.8rem; }
+      .preface { padding: 4rem 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-gradient"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Семейный архив · 2025</p>
+      <h1 class="hero-title">Истории<br><em>моей семьи</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Семь историй из семейного архива</p>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>читать</span>
+    </div>
+  </section>
+
+  <!-- PREFACE -->
+  <section class="preface reveal">
+    <p class="section-label">Предисловие</p>
+
+    <p>Эти тексты писались в разное время и по разным поводам.</p>
+
+    <p>Когда-то они существовали отдельно друг от друга — как <strong>фрагменты памяти,</strong> не предполагая, что однажды окажутся под одной обложкой.</p>
+
+    <p>Я не ставила перед собой задачи писать мемуары или восстанавливать хронологию событий. Мне было важно сохранить то, что удержалось в памяти само.</p>
+
+    <p>Это не история страны и не история эпохи. Это история жизни, увиденной изнутри. Такой, какой она запомнилась.</p>
+
+    <span class="ornament">❧</span>
+  </section>
+
+  <!-- STORIES -->
+  <section class="stories-section reveal">
+    <p class="section-label">Оглавление</p>
+
+    <nav class="stories-grid">
+
+      <a class="story-card" href="story1.html">
+        <span class="story-number">I</span>
+        <div class="story-body">
+          <span class="story-tag">Тяжесть выбора</span>
+          <h2 class="story-title">Добровольный путь во мрак небытия</h2>
+          <p class="story-desc">Клара. Ростов-на-Дону, 1941 год.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story2.html">
+        <span class="story-number">II</span>
+        <div class="story-body">
+          <span class="story-tag">Трещина в сердце</span>
+          <h2 class="story-title">История любви и измены</h2>
+          <p class="story-desc">О том, что остаётся, когда уходит всё остальное.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story3.html">
+        <span class="story-number">III</span>
+        <div class="story-body">
+          <span class="story-tag">Битва за быт</span>
+          <h2 class="story-title">Масляная битва</h2>
+          <p class="story-desc">Маленькая война в большом доме.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story4.html">
+        <span class="story-number">IV</span>
+        <div class="story-body">
+          <span class="story-tag">Мечта и реальность</span>
+          <h2 class="story-title">Полёт и очередь</h2>
+          <p class="story-desc">Между небом и землёй — целая жизнь.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story5.html">
+        <span class="story-number">V</span>
+        <div class="story-body">
+          <span class="story-tag">Мир без страха</span>
+          <h2 class="story-title">Детская доверчивость</h2>
+          <p class="story-desc">Когда мир ещё казался добрым и простым.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story6.html">
+        <span class="story-number">VI</span>
+        <div class="story-body">
+          <span class="story-tag">Нити судьбы</span>
+          <h2 class="story-title">Как тесен мир</h2>
+          <p class="story-desc">Случайные встречи, которые случайными не бывают.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+      <a class="story-card" href="story7.html">
+        <span class="story-number">VII</span>
+        <div class="story-body">
+          <span class="story-tag">Живой хаос</span>
+          <h2 class="story-title">Утренний переполох</h2>
+          <p class="story-desc">Из жизни, такой, какой она бывает каждый день.</p>
+        </div>
+        <span class="story-arrow">→</span>
+      </a>
+
+    </nav>
+  </section>
+
+  <footer>
+    © 2025 · Истории моей семьи · Фрагменты памяти
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
