@@ -183,6 +183,7 @@ body::before {
 }
 
 .article-body p {
+  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(1.15rem, 2.2vw, 1.28rem);
   line-height: 1.95;
   color: var(--ink-light);
