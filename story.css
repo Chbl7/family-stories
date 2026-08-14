@@ -295,3 +295,39 @@ footer {
   .bottom-nav { grid-template-columns: 1fr 1fr; }
   .nav-center { display: none; }
 }
+
+
+/* GUESTBOOK INVITE */
+.guestbook-invite {
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  padding: 1.6rem 1.5rem;
+  text-align: center;
+  background: var(--cream);
+  border: 1px solid rgba(122,92,48,0.25);
+  border-radius: 10px;
+}
+.guestbook-invite p {
+  margin: 0 0 0.8rem;
+  color: var(--ink-light);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+}
+.guestbook-invite a {
+  display: inline-block;
+  padding: 0.72rem 1rem;
+  border-radius: 6px;
+  background: var(--ink-light);
+  color: #fff;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+}
+.guestbook-invite a:hover { background: var(--sepia); }
+.guestbook-invite small {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--sepia);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.88rem;
+}
