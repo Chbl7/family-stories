@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Гостевая книга сайта «Истории моей семьи». Оставьте отзыв автору.">
+  <title>Гостевая книга · Истории моей семьи</title>
+  <style>
+    :root {
+      --paper: #f7f3e8;
+      --card: #fffdf8;
+      --ink: #2f2a25;
+      --brown: #4a3b32;
+      --sepia: #8b6638;
+      --line: #d8cab5;
+      --soft: #eee5d6;
+      --success: #3f6b4e;
+      --error: #9a3f35;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem clamp(1rem, 4vw, 2.5rem);
+      background: rgba(247, 243, 232, 0.96);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topbar a {
+      color: var(--sepia);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .topbar span { color: #776b60; font-size: 0.95rem; }
+    main {
+      width: min(760px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+    .intro { text-align: center; margin-bottom: 2rem; }
+    h1 {
+      margin: 0 0 0.65rem;
+      color: var(--brown);
+      font-size: clamp(2.1rem, 7vw, 3.5rem);
+      line-height: 1.15;
+    }
+    .intro p { margin: 0.4rem auto; max-width: 650px; font-size: 1.08rem; }
+    .moderation-note {
+      margin: 1.4rem auto 0;
+      padding: 0.9rem 1rem;
+      max-width: 650px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #f1eadf;
+      color: #55483d;
+    }
+    .form-card, .reviews {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(74, 59, 50, 0.08);
+      padding: clamp(1.25rem, 4vw, 2.4rem);
+    }
+    .form-card h2, .reviews h2 {
+      margin: 0 0 1.25rem;
+      color: var(--brown);
+      font-size: 1.55rem;
+    }
+    .field { margin-bottom: 1.2rem; }
+    label {
+      display: block;
+      margin-bottom: 0.42rem;
+      color: var(--brown);
+      font-weight: bold;
+    }
+    .optional { color: #786d64; font-weight: normal; font-size: 0.92rem; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #b9aa96;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 1rem;
+      padding: 0.78rem 0.85rem;
+    }
+    textarea { min-height: 180px; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: 3px solid rgba(139, 102, 56, 0.18);
+      border-color: var(--sepia);
+    }
+    .privacy {
+      margin: -0.45rem 0 1.2rem;
+      color: #6f645b;
+      font-size: 0.92rem;
+    }
+    button {
+      border: 0;
+      border-radius: 8px;
+      background: var(--brown);
+      color: #fff;
+      padding: 0.85rem 1.4rem;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #6d5e54; }
+    button:disabled { opacity: 0.65; cursor: wait; }
+    #form-status { min-height: 1.6em; margin-top: 1rem; font-weight: bold; }
+    #form-status.success { color: var(--success); }
+    #form-status.error { color: var(--error); }
+    .reviews { margin-top: 2rem; }
+    .reviews .empty {
+      margin: 0;
+      color: #6f645b;
+      font-style: italic;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--line);
+      color: #75695f;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 560px) {
+      .topbar { align-items: flex-start; }
+      .topbar span { text-align: right; font-size: 0.82rem; }
+      main { padding-top: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="topbar" aria-label="Навигация">
+    <a href="index.html">← На главную</a>
+    <span>Истории моей семьи</span>
+  </nav>
+
+  <main>
+    <header class="intro">
+      <h1>Гостевая книга</h1>
+      <p>Спасибо, что прочитали мои истории. Мне будет очень приятно узнать, что вам особенно запомнилось.</p>
+      <p class="moderation-note"><strong>Обратите внимание:</strong> отзыв появится на сайте только после того, как автор его прочитает и одобрит.</p>
+    </header>
+
+    <section class="form-card" aria-labelledby="form-title">
+      <h2 id="form-title">Оставить отзыв</h2>
+      <form id="guestbook-form" action="https://formspree.io/f/mzepvokr" method="POST">
+        <div class="field">
+          <label for="name">Ваше имя</label>
+          <input id="name" name="Имя" type="text" maxlength="80" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="city">Город <span class="optional">— необязательно</span></label>
+          <input id="city" name="Город" type="text" maxlength="80" autocomplete="address-level2">
+        </div>
+
+        <div class="field">
+          <label for="story">Какая история вам запомнилась? <span class="optional">— необязательно</span></label>
+          <select id="story" name="История">
+            <option value="">Общее впечатление о сайте</option>
+            <option>История 1: Добровольный путь во мрак небытия</option>
+            <option>История 2: История любви и измены</option>
+            <option>История 3: Масляная битва</option>
+            <option>История 4: Полёт и очередь</option>
+            <option>История 5: Детская доверчивость</option>
+            <option>История 6: Как тесен мир</option>
+            <option>История 7: Утренний переполох</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="email">Электронная почта <span class="optional">— необязательно</span></label>
+          <input id="email" name="email" type="email" maxlength="160" autocomplete="email">
+        </div>
+        <p class="privacy">Адрес почты не будет опубликован. Он нужен только в том случае, если вы хотите получить ответ.</p>
+
+        <div class="field">
+          <label for="message">Ваш отзыв</label>
+          <textarea id="message" name="Отзыв" minlength="3" maxlength="3000" required></textarea>
+        </div>
+
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+        <input type="hidden" name="_subject" value="Новый отзыв для гостевой книги">
+
+        <button id="submit-button" type="submit">Отправить отзыв</button>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">Отзывы читателей</h2>
+      <p class="empty">Здесь будут появляться отзывы после одобрения автором.</p>
+    </section>
+  </main>
+
+  <footer>© 2025–2026 · Истории моей семьи · Фрагменты памяти</footer>
+
+  <script>
+    const form = document.getElementById('guestbook-form');
+    const status = document.getElementById('form-status');
+    const button = document.getElementById('submit-button');
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      button.disabled = true;
+      button.textContent = 'Отправляется…';
+      status.className = '';
+      status.textContent = '';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!response.ok) throw new Error('Не удалось отправить форму');
+
+        form.reset();
+        status.className = 'success';
+        status.textContent = 'Спасибо! Ваш отзыв отправлен автору и появится после одобрения.';
+      } catch (error) {
+        status.className = 'error';
+        status.textContent = 'Отзыв пока не отправился. Пожалуйста, попробуйте ещё раз немного позже.';
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Отправить отзыв';
+      }
+    });
+  </script>
+
+  <!-- Cloudflare Web Analytics -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"54af8e7a47004a69b9f42a347b9e6511"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</body>
+</html>
